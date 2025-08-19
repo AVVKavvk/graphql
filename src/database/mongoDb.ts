@@ -1,0 +1,14 @@
+import mongoose from "mongoose";
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URL, {
+      dbName: "GraphQL",
+    });
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export default connectDB;

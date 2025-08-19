@@ -1,6 +1,29 @@
 export const schema = `#graphql
 
+    type User {
+        _id: ID!
+        name: String!
+        email: String!
+        role: String!
+        verified: Boolean!
+        createdAt: String!
+        updatedAt: String!
+
+    }
+
+    type Course{
+        _id: ID!
+        name: String!
+        description: String!
+        price: String!
+        instructor: User!
+        createdAt: String!
+        updatedAt: String!
+    }
+
     type Query {
-        hello: String
+        users: [User]
+        courses: [Course]
+        course(id:ID!): Course
     }
 `;

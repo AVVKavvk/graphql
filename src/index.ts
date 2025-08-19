@@ -1,6 +1,7 @@
 import express from "express";
 import { startGraphqlServer } from "./graphqlServer.js";
 import dotenv from "dotenv";
+import connectDB from "./database/mongoDb.js";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ async function startServer() {
   try {
     await startGraphqlServer();
     app.listen(Number(process.env.PORT), () => {
+      connectDB();
       console.log(`Server is running on port ${process.env.PORT}`);
     });
   } catch (error) {
