@@ -20,4 +20,13 @@ const getUserByIdService = async (id: string) => {
   }
 };
 
-export { getAllUserService, getUserByIdService };
+const addUserService = async (arg) => {
+  try {
+    const user = await User.create(arg);
+    // return user;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+export { getAllUserService, getUserByIdService, addUserService };

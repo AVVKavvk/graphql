@@ -1,6 +1,7 @@
 import {
   getAllUserService,
   getUserByIdService,
+  addUserService,
 } from "../services/userService.js";
 
 const getAllUsersController = async () => {
@@ -26,4 +27,13 @@ const getUserByIdController = async (id) => {
   }
 };
 
-export { getAllUsersController, getUserByIdController };
+const addUserController = async (arg) => {
+  try {
+    const user = await addUserService(arg);
+    // return user;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+export { getAllUsersController, getUserByIdController, addUserController };
